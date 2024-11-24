@@ -1,24 +1,629 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pZq-xQ-I6S">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="s2F-2T-7VX">
+                                <rect key="frame" x="0.0" y="155" width="393" height="663"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="TDn-JH-a4j">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TDn-JH-a4j" id="MoS-BE-eHH">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="m93-N4-4gS"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="QMw-pr-lo3"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="s2F-2T-7VX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="155" id="OTV-hV-Gqw"/>
+                            <constraint firstAttribute="bottom" secondItem="s2F-2T-7VX" secondAttribute="bottom" constant="34" id="V6i-AL-Pop"/>
+                            <constraint firstAttribute="trailing" secondItem="s2F-2T-7VX" secondAttribute="trailing" id="WaT-Ih-pLp"/>
+                            <constraint firstItem="s2F-2T-7VX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bFq-u7-crb"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Movies" id="Jf5-Hv-7Xo"/>
+                    <connections>
+                        <segue destination="ZcW-c5-WM2" kind="show" identifier="showMovieDetails" id="H4H-zX-WAG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1063.3587786259541" y="3.5211267605633805"/>
+        </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="aEe-lL-iVt">
+            <objects>
+                <viewController storyboardIdentifier="MovieDetailsViewController" id="ZcW-c5-WM2" customClass="MovieDetailsViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OfE-tV-HDS">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Un9-4Y-wI6">
+                                <rect key="frame" x="20" y="175" width="353" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="1sW-f5-Qm0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwH-PV-HpG">
+                                <rect key="frame" x="36" y="441" width="321" height="20.333333333333314"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.329999999999998" id="mY2-Zc-qxF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6YR-X5-XS6">
+                                <rect key="frame" x="36" y="469.33333333333326" width="321" height="113"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="113" id="Vyy-uO-5Cx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDf-rh-nkm">
+                                <rect key="frame" x="121" y="640" width="150" height="50"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1IB-OC-bw1"/>
+                                    <constraint firstAttribute="width" constant="150" id="cQL-nL-Lhf"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Trailer" cornerStyle="capsule">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="watchTrailerTapped:" destination="ZcW-c5-WM2" eventType="touchUpInside" id="IBk-C4-SOA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cs8-Tg-XgZ">
+                                <rect key="frame" x="121.66666666666669" y="748" width="150" height="50"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="rN9-17-IHf"/>
+                                    <constraint firstAttribute="height" constant="50" id="w7B-tI-8pJ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Seats" cornerStyle="capsule">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="seatsSelectionButton:" destination="ZcW-c5-WM2" eventType="touchUpInside" id="Xvp-he-WXh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="whi-i3-gao"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cs8-Tg-XgZ" firstAttribute="top" secondItem="pDf-rh-nkm" secondAttribute="bottom" constant="46" id="4e1-5a-T4s"/>
+                            <constraint firstItem="uwH-PV-HpG" firstAttribute="top" secondItem="Un9-4Y-wI6" secondAttribute="bottom" constant="16" id="5iF-ZW-Wvd"/>
+                            <constraint firstItem="Un9-4Y-wI6" firstAttribute="top" secondItem="whi-i3-gao" secondAttribute="top" constant="20" id="B2p-N8-U7X"/>
+                            <constraint firstItem="whi-i3-gao" firstAttribute="trailing" secondItem="Un9-4Y-wI6" secondAttribute="trailing" constant="20" id="Bwt-sH-EP7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6YR-X5-XS6" secondAttribute="trailing" constant="20" id="IB4-AA-uJl"/>
+                            <constraint firstItem="cs8-Tg-XgZ" firstAttribute="centerX" secondItem="OfE-tV-HDS" secondAttribute="centerX" id="cQK-Wq-gWc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uwH-PV-HpG" secondAttribute="trailing" constant="20" id="emt-B6-uxG"/>
+                            <constraint firstItem="6YR-X5-XS6" firstAttribute="leading" secondItem="OfE-tV-HDS" secondAttribute="leadingMargin" constant="20" id="g1p-wN-ECj"/>
+                            <constraint firstItem="Un9-4Y-wI6" firstAttribute="leading" secondItem="whi-i3-gao" secondAttribute="leading" constant="20" id="g2l-Mo-acD"/>
+                            <constraint firstItem="6YR-X5-XS6" firstAttribute="top" secondItem="uwH-PV-HpG" secondAttribute="bottom" constant="8" id="htE-tG-l92"/>
+                            <constraint firstItem="uwH-PV-HpG" firstAttribute="leading" secondItem="OfE-tV-HDS" secondAttribute="leadingMargin" constant="20" id="w5k-2x-HSH"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="cs8-Tg-XgZ" secondAttribute="bottom" constant="20" id="w7e-bd-4Vz"/>
+                            <constraint firstItem="pDf-rh-nkm" firstAttribute="centerX" secondItem="OfE-tV-HDS" secondAttribute="centerX" id="x0Y-tX-xdE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="nHx-9G-bbz"/>
+                    <connections>
+                        <outlet property="movieTitleLabel" destination="uwH-PV-HpG" id="SX6-TR-Umh"/>
+                        <outlet property="overviewLabel" destination="6YR-X5-XS6" id="fbF-vi-GsI"/>
+                        <outlet property="posterImageView" destination="Un9-4Y-wI6" id="pi0-PU-8CY"/>
+                        <outlet property="watchTrailerButton" destination="pDf-rh-nkm" id="bVJ-rC-tYQ"/>
+                        <segue destination="gvF-7j-sW7" kind="show" identifier="showSeatsDetails" id="zXm-cr-e6F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J0m-ka-sll" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2015" y="4"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Db9-w6-V3P">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pZq-xQ-I6S" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="bPP-02-u2U">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9dI-aR-Hen"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LZm-SP-Jcq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.64122137404578" y="3.5211267605633805"/>
+        </scene>
+        <!--Seats Selection View Controller-->
+        <scene sceneID="4dE-85-Q2R">
+            <objects>
+                <viewController id="gvF-7j-sW7" customClass="SeatsSelectionViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W9u-CM-5Nd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 25 (2)" translatesAutoresizingMaskIntoConstraints="NO" id="Ecr-re-CBa">
+                                <rect key="frame" x="45" y="150" width="302" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="YHu-aP-8rB"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="screen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4x1-mU-2YL">
+                                <rect key="frame" x="167" y="230" width="58" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hx9-hK-GiE">
+                                <rect key="frame" x="36" y="270.33333333333331" width="320" height="349.99999999999994"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WLB-i9-AhW">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6tI-AC-5WP">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0P-Fh-mFt">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="y0P-Fh-mFt" secondAttribute="height" multiplier="10:11" id="RwN-LD-tjG"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="dhM-UA-hcP"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ms-fK-GV5">
+                                                        <rect key="frame" x="65" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="2ms-fK-GV5" secondAttribute="height" multiplier="10:11" id="1mG-mK-xJ1"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="uFm-uA-47F"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ni-Dm-Qj2">
+                                                        <rect key="frame" x="130" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="0Ni-Dm-Qj2" secondAttribute="height" multiplier="10:11" id="fBn-cf-cWe"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="zNz-VB-ioT"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghi-Ns-QdE">
+                                                        <rect key="frame" x="195" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="ghi-Ns-QdE" secondAttribute="height" multiplier="10:11" id="qBf-tD-yEj"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="8nl-gE-1B9"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n48-b1-oyq">
+                                                        <rect key="frame" x="260" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="n48-b1-oyq" secondAttribute="height" multiplier="10:11" id="TSk-ja-Qs8"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="6Tj-VD-FRe"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="AFS-gj-KnL">
+                                                <rect key="frame" x="0.0" y="71" width="320" height="66"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61y-xe-tNI">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="61y-xe-tNI" secondAttribute="height" multiplier="10:11" id="Drt-xR-9af"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="HKl-HQ-lCf"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkR-9N-0rJ">
+                                                        <rect key="frame" x="65" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="qkR-9N-0rJ" secondAttribute="height" multiplier="10:11" id="sKS-8r-jyM"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="D7U-FH-0IN"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPF-jS-6k3">
+                                                        <rect key="frame" x="130" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="hPF-jS-6k3" secondAttribute="height" multiplier="10:11" id="tKb-x3-xsF"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="r67-xa-qxk"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xY7-7I-4gQ">
+                                                        <rect key="frame" x="195" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="xY7-7I-4gQ" secondAttribute="height" multiplier="10:11" id="Sv1-Lj-aG9"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="Rf6-os-FCf"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuX-VX-1Y2">
+                                                        <rect key="frame" x="260" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="vuX-VX-1Y2" secondAttribute="height" multiplier="10:11" id="oap-rB-7Bc"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="KMX-3i-cLN"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HbQ-C2-ycn">
+                                                <rect key="frame" x="0.0" y="142" width="320" height="66"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQb-mN-Aud">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="WQb-mN-Aud" secondAttribute="height" multiplier="10:11" id="Yh3-iA-JtL"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="zPz-14-2kz"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cdv-w6-3G6">
+                                                        <rect key="frame" x="65" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Cdv-w6-3G6" secondAttribute="height" multiplier="10:11" id="XWx-zU-Of1"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="YCL-h9-WM5"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHu-9R-m8c">
+                                                        <rect key="frame" x="130" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="AHu-9R-m8c" secondAttribute="height" multiplier="10:11" id="LKJ-Ub-Rnb"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="hhG-fH-K3S"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzQ-Jc-SI9">
+                                                        <rect key="frame" x="195" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="UzQ-Jc-SI9" secondAttribute="height" multiplier="10:11" id="1C4-Xd-wMB"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="8ZJ-ZR-ewa"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idP-zM-7kO">
+                                                        <rect key="frame" x="260" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="idP-zM-7kO" secondAttribute="height" multiplier="10:11" id="ONZ-oU-CuB"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="em5-cB-s8A"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EoP-ob-Agb">
+                                                <rect key="frame" x="0.0" y="213" width="320" height="66"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9X8-Dp-azE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="9X8-Dp-azE" secondAttribute="height" multiplier="10:11" id="pRm-Cl-fUB"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="MDy-77-amT"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHu-H9-8mk">
+                                                        <rect key="frame" x="65" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="mHu-H9-8mk" secondAttribute="height" multiplier="10:11" id="sYh-1j-LvF"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="LRO-U1-zzz"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kM3-Bf-Gkp">
+                                                        <rect key="frame" x="130" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="kM3-Bf-Gkp" secondAttribute="height" multiplier="10:11" id="DDV-Uc-p0X"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="dXn-pt-lGI"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1n-aY-Ua3">
+                                                        <rect key="frame" x="195" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="h1n-aY-Ua3" secondAttribute="height" multiplier="10:11" id="V5b-5d-bcD"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="yhK-4Y-5db"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCt-1V-DPW">
+                                                        <rect key="frame" x="260" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="oCt-1V-DPW" secondAttribute="height" multiplier="10:11" id="bZq-jU-2Qs"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="Cyy-nQ-rtX"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dB8-EF-Klb">
+                                                <rect key="frame" x="0.0" y="284.00000000000006" width="320" height="66"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6p8-yX-a7X">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="6p8-yX-a7X" secondAttribute="height" multiplier="10:11" id="n7l-gq-fPC"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="t9c-Kh-1wC"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPj-Ec-IJO">
+                                                        <rect key="frame" x="65" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="gPj-Ec-IJO" secondAttribute="height" multiplier="10:11" id="kGA-vM-oCr"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="qZI-v5-EHi"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNe-0W-UAm">
+                                                        <rect key="frame" x="130" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="mNe-0W-UAm" secondAttribute="height" multiplier="10:11" id="Zu4-6o-3nw"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="TQv-Ra-FDl"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlA-Qp-sKS">
+                                                        <rect key="frame" x="195" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="hlA-Qp-sKS" secondAttribute="height" multiplier="10:11" id="Kx5-dZ-Lq6"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="G2p-sM-9d1"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hES-45-6CD">
+                                                        <rect key="frame" x="260" y="0.0" width="60" height="66"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="hES-45-6CD" secondAttribute="height" multiplier="10:11" id="9lL-yn-wru"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="popcorn" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="seatTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="D5X-oa-qQN"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="EoP-ob-Agb" secondAttribute="trailing" id="EEf-Bx-kEV"/>
+                                            <constraint firstAttribute="trailing" secondItem="AFS-gj-KnL" secondAttribute="trailing" id="MPp-Gc-2KD"/>
+                                            <constraint firstItem="EoP-ob-Agb" firstAttribute="leading" secondItem="WLB-i9-AhW" secondAttribute="leading" id="MXR-bB-kWN"/>
+                                            <constraint firstAttribute="trailing" secondItem="dB8-EF-Klb" secondAttribute="trailing" id="RfI-Nr-Y6b"/>
+                                            <constraint firstAttribute="trailing" secondItem="HbQ-C2-ycn" secondAttribute="trailing" id="Tpv-sG-FhO"/>
+                                            <constraint firstItem="HbQ-C2-ycn" firstAttribute="leading" secondItem="WLB-i9-AhW" secondAttribute="leading" id="UDZ-b1-fNa"/>
+                                            <constraint firstAttribute="trailing" secondItem="6tI-AC-5WP" secondAttribute="trailing" id="cPL-6T-9vc"/>
+                                            <constraint firstItem="6tI-AC-5WP" firstAttribute="leading" secondItem="WLB-i9-AhW" secondAttribute="leading" id="fuj-uh-26E"/>
+                                            <constraint firstItem="dB8-EF-Klb" firstAttribute="leading" secondItem="WLB-i9-AhW" secondAttribute="leading" id="gir-xh-zzs"/>
+                                            <constraint firstAttribute="bottom" secondItem="dB8-EF-Klb" secondAttribute="bottom" id="ir3-1D-0nx"/>
+                                            <constraint firstItem="6tI-AC-5WP" firstAttribute="top" secondItem="WLB-i9-AhW" secondAttribute="top" id="pUq-WO-t6W"/>
+                                            <constraint firstItem="AFS-gj-KnL" firstAttribute="leading" secondItem="WLB-i9-AhW" secondAttribute="leading" id="t2p-Bd-UAM"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="SeatsContainerView"/>
+                                <constraints>
+                                    <constraint firstItem="WLB-i9-AhW" firstAttribute="top" secondItem="hx9-hK-GiE" secondAttribute="top" id="Wfj-bf-y5U"/>
+                                    <constraint firstAttribute="height" constant="350" id="YZ2-QA-HaT"/>
+                                    <constraint firstItem="WLB-i9-AhW" firstAttribute="leading" secondItem="hx9-hK-GiE" secondAttribute="leading" id="Z18-a2-v3K"/>
+                                    <constraint firstAttribute="trailing" secondItem="WLB-i9-AhW" secondAttribute="trailing" id="lO4-Zr-rgv"/>
+                                    <constraint firstAttribute="bottom" secondItem="WLB-i9-AhW" secondAttribute="bottom" id="oEE-d7-Xvw"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8RX-5N-H5v">
+                                <rect key="frame" x="121" y="734" width="150" height="50"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="S87-JV-WND"/>
+                                    <constraint firstAttribute="width" constant="150" id="tKt-ej-9Pr"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Checkout" cornerStyle="capsule">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="checkoutTapped:" destination="gvF-7j-sW7" eventType="touchUpInside" id="52R-26-coy"/>
+                                    <action selector="watchTrailerTapped:" destination="ZcW-c5-WM2" eventType="touchUpInside" id="ySo-M3-a8N"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="seE-Gx-rc9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ecr-re-CBa" firstAttribute="top" secondItem="W9u-CM-5Nd" secondAttribute="top" constant="150" id="5Vh-Sc-58I"/>
+                            <constraint firstItem="4x1-mU-2YL" firstAttribute="leading" secondItem="seE-Gx-rc9" secondAttribute="leading" constant="167" id="AuA-vp-zhP"/>
+                            <constraint firstItem="8RX-5N-H5v" firstAttribute="centerX" secondItem="W9u-CM-5Nd" secondAttribute="centerX" id="E7a-AF-aa4"/>
+                            <constraint firstItem="hx9-hK-GiE" firstAttribute="top" secondItem="4x1-mU-2YL" secondAttribute="bottom" constant="20" id="OL9-U6-Dpb"/>
+                            <constraint firstItem="8RX-5N-H5v" firstAttribute="top" secondItem="hx9-hK-GiE" secondAttribute="bottom" constant="113.67" id="OUy-Rc-5a5"/>
+                            <constraint firstItem="Ecr-re-CBa" firstAttribute="leading" secondItem="seE-Gx-rc9" secondAttribute="leading" constant="45" id="UXQ-Rg-pVu"/>
+                            <constraint firstItem="4x1-mU-2YL" firstAttribute="top" secondItem="Ecr-re-CBa" secondAttribute="bottom" id="Ufx-Oo-ydd"/>
+                            <constraint firstItem="hx9-hK-GiE" firstAttribute="leading" secondItem="W9u-CM-5Nd" secondAttribute="leadingMargin" constant="20" id="XPa-NT-QNI"/>
+                            <constraint firstItem="seE-Gx-rc9" firstAttribute="trailing" secondItem="Ecr-re-CBa" secondAttribute="trailing" constant="45" id="dWN-Rr-a6K"/>
+                            <constraint firstItem="8RX-5N-H5v" firstAttribute="leading" secondItem="seE-Gx-rc9" secondAttribute="leading" constant="121" id="efm-N2-kuV"/>
+                            <constraint firstItem="seE-Gx-rc9" firstAttribute="trailing" secondItem="8RX-5N-H5v" secondAttribute="trailing" constant="121" id="kcZ-sC-Ayg"/>
+                            <constraint firstItem="seE-Gx-rc9" firstAttribute="trailing" secondItem="4x1-mU-2YL" secondAttribute="trailing" constant="167" id="sWb-XD-8Ac"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hx9-hK-GiE" secondAttribute="trailing" constant="20" id="z8s-yZ-cdP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Yqc-Jp-avd"/>
+                    <connections>
+                        <outlet property="checkoutButton" destination="8RX-5N-H5v" id="Rez-Pc-Tr8"/>
+                        <outletCollection property="seatButtons" destination="0Ni-Dm-Qj2" collectionClass="NSMutableArray" id="Q25-wG-cbb"/>
+                        <outletCollection property="seatButtons" destination="y0P-Fh-mFt" collectionClass="NSMutableArray" id="E4b-2r-ViU"/>
+                        <outletCollection property="seatButtons" destination="2ms-fK-GV5" collectionClass="NSMutableArray" id="n8F-XI-FlJ"/>
+                        <outletCollection property="seatButtons" destination="ghi-Ns-QdE" collectionClass="NSMutableArray" id="0nb-S9-OB6"/>
+                        <outletCollection property="seatButtons" destination="n48-b1-oyq" collectionClass="NSMutableArray" id="etU-OB-i1M"/>
+                        <outletCollection property="seatButtons" destination="61y-xe-tNI" collectionClass="NSMutableArray" id="pQ9-37-QG4"/>
+                        <outletCollection property="seatButtons" destination="qkR-9N-0rJ" collectionClass="NSMutableArray" id="eHO-IH-KNj"/>
+                        <outletCollection property="seatButtons" destination="hPF-jS-6k3" collectionClass="NSMutableArray" id="a1b-GX-PXZ"/>
+                        <outletCollection property="seatButtons" destination="xY7-7I-4gQ" collectionClass="NSMutableArray" id="sIM-ci-CBz"/>
+                        <outletCollection property="seatButtons" destination="vuX-VX-1Y2" collectionClass="NSMutableArray" id="onD-1h-eqa"/>
+                        <outletCollection property="seatButtons" destination="WQb-mN-Aud" collectionClass="NSMutableArray" id="mNL-ux-0u5"/>
+                        <outletCollection property="seatButtons" destination="Cdv-w6-3G6" collectionClass="NSMutableArray" id="YmE-kF-vgJ"/>
+                        <outletCollection property="seatButtons" destination="AHu-9R-m8c" collectionClass="NSMutableArray" id="mIO-1h-xl2"/>
+                        <outletCollection property="seatButtons" destination="UzQ-Jc-SI9" collectionClass="NSMutableArray" id="KeQ-m6-QR2"/>
+                        <outletCollection property="seatButtons" destination="idP-zM-7kO" collectionClass="NSMutableArray" id="FtG-d6-gyp"/>
+                        <outletCollection property="seatButtons" destination="9X8-Dp-azE" collectionClass="NSMutableArray" id="lp1-FJ-s6K"/>
+                        <outletCollection property="seatButtons" destination="mHu-H9-8mk" collectionClass="NSMutableArray" id="sBi-tt-NH7"/>
+                        <outletCollection property="seatButtons" destination="kM3-Bf-Gkp" collectionClass="NSMutableArray" id="Sjo-I9-xiF"/>
+                        <outletCollection property="seatButtons" destination="h1n-aY-Ua3" collectionClass="NSMutableArray" id="2DN-w2-CEK"/>
+                        <outletCollection property="seatButtons" destination="oCt-1V-DPW" collectionClass="NSMutableArray" id="Gtb-eR-vRm"/>
+                        <outletCollection property="seatButtons" destination="6p8-yX-a7X" collectionClass="NSMutableArray" id="4Dg-H1-wro"/>
+                        <outletCollection property="seatButtons" destination="gPj-Ec-IJO" collectionClass="NSMutableArray" id="cDQ-6d-X5D"/>
+                        <outletCollection property="seatButtons" destination="mNe-0W-UAm" collectionClass="NSMutableArray" id="uT3-Bn-38X"/>
+                        <outletCollection property="seatButtons" destination="hlA-Qp-sKS" collectionClass="NSMutableArray" id="hf0-Dh-Ucr"/>
+                        <outletCollection property="seatButtons" destination="hES-45-6CD" collectionClass="NSMutableArray" id="8Vh-f6-n1N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o2k-Uj-StQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2893.8931297709923" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Rectangle 25 (2)" width="697" height="80"/>
+        <image name="popcorn" catalog="system" width="103" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

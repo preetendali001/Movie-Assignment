@@ -6,12 +6,32 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1C7454252CF311D1003B30A2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1C7454242CF311D1003B30A2 /* RealmSwift */; };
+		1C7454592CF3158E003B30A2 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 1C7454242CF311D1003B30A2 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1C9320122CF2DB46005F9622 /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 1C9320112CF2DB46005F9622 /* YouTubeiOSPlayerHelper */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1C7454582CF313BB003B30A2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1C7454592CF3158E003B30A2 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1C366C442CEF775000E50CCE /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		1C366C562CEF775500E50CCE /* Exceptions for "Movies" folder in "Movies" target */ = {
+		1C7454502CF31240003B30A2 /* Exceptions for "Movies" folder in "Movies" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -21,10 +41,10 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		1C366C462CEF775000E50CCE /* Movies */ = {
+		1C7454472CF31240003B30A2 /* Movies */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				1C366C562CEF775500E50CCE /* Exceptions for "Movies" folder in "Movies" target */,
+				1C7454502CF31240003B30A2 /* Exceptions for "Movies" folder in "Movies" target */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -36,6 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C7454252CF311D1003B30A2 /* RealmSwift in Frameworks */,
+				1C9320122CF2DB46005F9622 /* YouTubeiOSPlayerHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +67,8 @@
 		1C366C3B2CEF775000E50CCE = {
 			isa = PBXGroup;
 			children = (
-				1C366C462CEF775000E50CCE /* Movies */,
+				1C7454472CF31240003B30A2 /* Movies */,
+				1C7454542CF313BA003B30A2 /* Frameworks */,
 				1C366C452CEF775000E50CCE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,6 +81,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1C7454542CF313BA003B30A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -68,16 +98,19 @@
 				1C366C402CEF775000E50CCE /* Sources */,
 				1C366C412CEF775000E50CCE /* Frameworks */,
 				1C366C422CEF775000E50CCE /* Resources */,
+				1C7454582CF313BB003B30A2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				1C366C462CEF775000E50CCE /* Movies */,
+				1C7454472CF31240003B30A2 /* Movies */,
 			);
 			name = Movies;
 			packageProductDependencies = (
+				1C9320112CF2DB46005F9622 /* YouTubeiOSPlayerHelper */,
+				1C7454242CF311D1003B30A2 /* RealmSwift */,
 			);
 			productName = Movies;
 			productReference = 1C366C442CEF775000E50CCE /* Movies.app */;
@@ -107,6 +140,10 @@
 			);
 			mainGroup = 1C366C3B2CEF775000E50CCE;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1C9320102CF2DB45005F9622 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
+				1C7454232CF311D1003B30A2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1C366C452CEF775000E50CCE /* Products */;
 			projectDirPath = "";
@@ -335,6 +372,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1C7454232CF311D1003B30A2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		1C9320102CF2DB45005F9622 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/youtube/youtube-ios-player-helper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1C7454242CF311D1003B30A2 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C7454232CF311D1003B30A2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		1C9320112CF2DB46005F9622 /* YouTubeiOSPlayerHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C9320102CF2DB45005F9622 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
+			productName = YouTubeiOSPlayerHelper;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1C366C3C2CEF775000E50CCE /* Project object */;
 }
